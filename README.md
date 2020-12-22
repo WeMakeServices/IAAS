@@ -8,7 +8,7 @@ Internet as a Service (IAAS) provides users with an easy, robust, reliable, and 
 
 1. Your application needs to check if it has internet availability
 2. You want to receive either a positive or negative confirmation of availability, or the lack thereof
-3. You only need to check for internet availability once every 24 hours or less
+3. You only need to check for internet availability at most once every 24 hours 
 
 Then you are welcome to use IAAS for your internet connection needs!
 
@@ -65,6 +65,21 @@ def checkInternetConnectionNegated():
 YES
 ```
 
+## Failure Response
+
+**Code** : `429 Too Many Requests`
+
+**Content examples**
+
+For a request made less than 24 hours before the previous request
+
+```json
+Too Many Requests
+1 per 1 day
+```
+
+* * * * * 
+
 **URL** : `/do-i-the-invoker-of-iaas-not-have-internet-availability-right-now-at-this-current-point-in-time-assuming-iaas-is-currently-properly-functional-and-live-for-any-get-request`
 
 **Method** : `GET`
@@ -86,6 +101,8 @@ YES
 ```json
 NO
 ```
+
+## Failure Response
 
 **Code** : `429 Too Many Requests`
 
